@@ -11,8 +11,8 @@ const ruleTester = new RuleTester({
 
 ruleTester.run(
   "no-number",
-  noVariableWithNumberAtEnd, // rule code
-  { // checks
+  noVariableWithNumberAtEnd,
+  {
     valid: [{
       code: "const foo = 'bar';",
     }],
