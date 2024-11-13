@@ -1,18 +1,24 @@
-import rules from "./index.js";
+import typescriptEslintParser from "@typescript-eslint/parser";
+import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 
 export default [
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    ignores: ["node_modules/**", "dist/**", "amplify/**"],
+    files: ["**/*.{js,jsx,ts,tsx}"], // Match JavaScript and TypeScript files
+    ignores: ["node_modules/**", "dist/**", "amplify/**"], // Ignore common folders
     languageOptions: {
-      ecmaVersion: 2020,
-      sourceType: "module",
+      parser: typescriptEslintParser, // Pass the parser object, not a string
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
     },
     plugins: {
-      "custom-rules": rules,
+      "@typescript-eslint": typescriptEslintPlugin,
     },
     rules: {
-      "custom-rules/no-number": "error",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
     },
   },
 ];

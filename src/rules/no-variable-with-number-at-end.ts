@@ -1,3 +1,8 @@
+import {Rule} from "eslint";
+import NodeParentExtension = Rule.NodeParentExtension;
+import {Identifier} from "estree";
+
+
 export default {
   meta: {
     type: "problem",
@@ -12,9 +17,9 @@ export default {
     },
     schema: [],
   },
-  create(context) {
+  create(context: Rule.RuleContext) {
     return {
-      Identifier(node) {
+      Identifier(node: Identifier & NodeParentExtension) {
         const variableName = node.name;
         if (/\d$/.test(variableName)) {
           context.report({
@@ -28,4 +33,4 @@ export default {
       },
     };
   },
-};
+} as Rule.RuleModule;
