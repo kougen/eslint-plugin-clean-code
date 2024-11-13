@@ -1,5 +1,5 @@
 import { RuleTester } from "eslint";
-import noVariableWithNumberAtEnd from "./no-variable-with-number-at-end.js";
+import noVariableWithNumberAtEnd from "./no-variable-with-number-at-end";
 
 
 const ruleTester = new RuleTester({
