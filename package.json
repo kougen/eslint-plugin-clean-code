@@ -1,6 +1,6 @@
 {
   "name": "@kougen/eslint-clean-code",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom eslint rules for clean code.",
   "main": "src/index.ts",
   "type": "module",
