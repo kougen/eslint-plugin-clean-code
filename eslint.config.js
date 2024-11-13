@@ -2,10 +2,10 @@ import rules from "./index.js";
 
 export default [
   {
-    files: ["**/*.{js,jsx,ts,tsx}"], // Match JavaScript and TypeScript files
-    ignores: ["node_modules/**", "dist/**", "amplify/**"], // Ignore common folders
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    ignores: ["node_modules/**", "dist/**", "amplify/**"],
     languageOptions: {
-      ecmaVersion: "latest",
+      ecmaVersion: 2020,
       sourceType: "module",
     },
     plugins: {
@@ -13,6 +13,7 @@ export default [
     },
     rules: {
       "custom-rules/no-number": "error",
+      "custom-rules/foo-bar": "error",
     },
   },
 ];
