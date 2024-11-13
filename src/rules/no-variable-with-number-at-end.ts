@@ -1,25 +1,24 @@
-import {Rule} from "eslint";
-import NodeParentExtension = Rule.NodeParentExtension;
-import {Identifier} from "estree";
+import { ESLintUtils } from '@typescript-eslint/utils';
 
+const createRule = ESLintUtils.RuleCreator(name => `https://kou-gen.net/eslint-clean-code/${name}`);
 
-export default {
+export default createRule({
+  name: "no-variable-with-number-at-end",
   meta: {
     type: "problem",
     fixable: "code",
     docs: {
       description: "Disallow variable names ending with numbers",
-      category: "Best Practices",
-      recommended: false,
     },
     messages: {
       noNumberEnding: "Variable '{{name}}' should not end with a number.",
     },
     schema: [],
   },
-  create(context: Rule.RuleContext) {
+  defaultOptions: [],
+  create(context) {
     return {
-      Identifier(node: Identifier & NodeParentExtension) {
+      Identifier(node) {
         const variableName = node.name;
         if (/\d$/.test(variableName)) {
           context.report({
@@ -33,4 +32,4 @@ export default {
       },
     };
   },
-} as Rule.RuleModule;
+});
