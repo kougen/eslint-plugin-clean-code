@@ -1,4 +1,4 @@
-import { RuleTester } from "eslint";
+import { RuleTester } from '@typescript-eslint/rule-tester';
 import noVariableWithNumberAtEnd from "./no-variable-with-number-at-end";
 
 
@@ -18,7 +18,7 @@ ruleTester.run(
     }],
     invalid: [{
       code: "const foo2 = 'bar';",
-      errors: 1,
+      errors: [{ messageId: "noNumberEnding" }],
     }],
   }
 );

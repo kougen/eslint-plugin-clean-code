@@ -1,6 +1,6 @@
 {
   "name": "@kougen/eslint-clean-code",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom eslint rules for clean code.",
   "main": "src/index.ts",
   "type": "module",
@@ -22,15 +22,20 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.14.0",
+    "@kougen/eslint-clean-code": "file:",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
+    "@typescript-eslint/rule-tester": "^8.14.0",
+    "@typescript-eslint/utils": "^8.14.0",
     "babel-jest": "^29.7.0",
     "eslint": "^9.14.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.14.0"
   },
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
   "dependencies": {

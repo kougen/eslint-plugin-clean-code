@@ -2,15 +2,31 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
     "sourceMap": true,
-    "types": ["jest"],
+    "types": [
+      "jest"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@rules/*": [
+        "src/rules/*"
+      ]
+    }
   },
-  "include": ["src/**/*", "**/*.test.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*",
+    "**/*.test.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
