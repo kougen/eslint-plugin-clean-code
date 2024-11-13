@@ -6,7 +6,7 @@ const ruleTester = new RuleTester({
   languageOptions: {
     ecmaVersion: 6,
     sourceType: "module",
-  },
+  }
 });
 
 ruleTester.run(
@@ -17,8 +17,7 @@ ruleTester.run(
       code: "const foo = 'bar';",
     }],
     invalid: [{
-      code: "const foo = 'bar2';",
-      output: 'const foo = "bar";',
+      code: "const foo2 = 'bar';",
       errors: 1,
     }],
   }

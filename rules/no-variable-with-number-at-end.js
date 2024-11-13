@@ -1,6 +1,7 @@
 export default {
   meta: {
     type: "problem",
+    fixable: "code",
     docs: {
       description: "Disallow variable names ending with numbers",
       category: "Best Practices",
