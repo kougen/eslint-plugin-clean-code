@@ -1,8 +1,8 @@
 {
   "name": "@kougen/eslint-clean-code",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Custom eslint rules for clean code.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "test": "jest"
@@ -16,6 +16,9 @@
     "clean code",
     "best practices"
   ],
+  "files": [
+    "dist"
+  ],
   "peerDependencies": {
     "eslint": ">=8.0.0"
   },
@@ -23,7 +26,6 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@eslint/js": "^9.14.0",
-    "@kougen/eslint-clean-code": "file:",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
