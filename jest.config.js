@@ -1,6 +1,6 @@
 export default {
   transform: {
-    "^.+\\.jsx?$": "babel-jest", // Use Babel for .js and .jsx files
+    "^.+\\.jsx?$": "babel-jest",
   },
   testEnvironment: "node",
 };

@@ -13,7 +13,6 @@ export default [
     },
     rules: {
       "custom-rules/no-number": "error",
-      "custom-rules/foo-bar": "error",
     },
   },
 ];
