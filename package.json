@@ -1,6 +1,6 @@
 {
   "name": "@kougen/eslint-plugin-clean-code",
-  "version": "1.1.0",
+  "version": "1.1.5",
   "description": "Custom eslint rules for clean code.",
   "main": "dist/index.js",
   "readme": "README.md",
