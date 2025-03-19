@@ -1,6 +1,14 @@
-import { ESLintUtils } from '@typescript-eslint/utils';
+import {ESLintUtils} from '@typescript-eslint/utils';
+import path from 'path';
 
-const createRule = ESLintUtils.RuleCreator(name => `https://kou-gen.net/eslint-clean-code/${name}`);
+/**
+ * URL encode the rule name
+ * @param name - The rule name
+ * @returns The URL encoded rule name
+ */
+const encode = (name: string) => encodeURIComponent(name);
+
+const createRule = ESLintUtils.RuleCreator(name => `https://github.com/eslint-plugin-clean-code/wiki/${encode(name)}`);
 
 export default createRule({
   name: "no-variable-with-number-at-end",
@@ -13,10 +21,28 @@ export default createRule({
     messages: {
       noNumberEnding: "Variable '{{name}}' should not end with a number.",
     },
-    schema: [],
+    schema: [
+      {
+        type: "object",
+        properties: {
+          extensions: {
+            type: "array",
+            items: {type: "string"},
+          }
+        },
+        additionalProperties: false
+      }
+    ],
   },
-  defaultOptions: [],
-  create(context) {
+  defaultOptions: [{extensions: [".ts", ".js"]}],
+  create(context, [{extensions}]) {
+    const filename = context.filename;
+    const ext = path.extname(filename);
+
+    if (!extensions.includes(ext)) {
+      return {};
+    }
+
     return {
       Identifier(node) {
         const variableName = node.name;
