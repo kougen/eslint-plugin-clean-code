@@ -3,6 +3,7 @@
 # Clean Code Rules
 
 - `no-number`: Avoid using numbers at the end of variable or function names.
+  - extensions: `.ts`, `.js` (default)
 
 # Installation
 
@@ -41,10 +42,10 @@ export default [
     // .....
     plugins: {
 
-      ecc: eslintCleanCode,
+      "clean-code": eslintCleanCode,
     },
     rules: {
-      "ecc/no-number": "error",
+      "clean-code/no-number": "error",
     }
   }
 ]
