@@ -10,10 +10,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "declaration": true,
     "outDir": "./dist",
     "sourceMap": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
+    "noEmit": false,
     "types": [
       "jest", "node"
     ],

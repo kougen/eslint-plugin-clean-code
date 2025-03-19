@@ -6,6 +6,7 @@
   "readme": "README.md",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "author": "Joshua Hegedus",

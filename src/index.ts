@@ -1,4 +1,4 @@
-import noVariableWithNumberAtEnd from "./rules/no-variable-with-number-at-end.js";
+import noVariableWithNumberAtEnd from "./rules/no-variable-with-number-at-end";
 
 export default {
   rules:
