@@ -1,27 +1,22 @@
-name: Publish to npm with pnpm
+name: Build and Test
 
 on:
-  release:
-    types: [published]
-
-permissions:
-  contents: read
-  id-token: write
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-22.04
+
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: "pnpm"
-
       - name: Install dependencies
         run: pnpm install
 
@@ -31,10 +26,5 @@ jobs:
       - name: Build package
         run: pnpm build
 
-      - name: Test pakcage
+      - name: Test package
         run: pnpm test
-
-      - name: Publish to npm
-        run: pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
