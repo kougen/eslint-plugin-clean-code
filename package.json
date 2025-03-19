@@ -1,6 +1,6 @@
 {
   "name": "@kougen/eslint-plugin-clean-code",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Custom eslint rules for clean code.",
   "main": "dist/index.js",
   "readme": "README.md",
@@ -8,6 +8,9 @@
   "scripts": {
     "build": "tsc",
     "test": "jest"
+  },
+  "repository": {
+    "url": "https://github.com/kougen/eslint-plugin-clean-code"
   },
   "author": "Joshua Hegedus",
   "license": "MIT",
