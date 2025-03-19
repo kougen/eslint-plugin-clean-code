@@ -22,5 +22,3 @@ ruleTester.run(
     }],
   }
 );
-
-console.log("All tests passed!");
