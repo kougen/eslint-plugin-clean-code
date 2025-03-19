@@ -21,7 +21,18 @@ export default createRule({
     messages: {
       noNumberEnding: "Variable '{{name}}' should not end with a number.",
     },
-    schema: [],
+    schema: [
+      {
+        type: "object",
+        properties: {
+          extensions: {
+            type: "array",
+            items: {type: "string"},
+          }
+        },
+        additionalProperties: false
+      }
+    ],
   },
   defaultOptions: [{extensions: [".ts", ".js"]}],
   create(context, [{extensions}]) {
