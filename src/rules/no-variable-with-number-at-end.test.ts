@@ -29,16 +29,61 @@ ruleTester.run(
   noVariableWithNumberAtEnd,
   {
     valid: [
-      {code: "const foo = 'bar';", filename: "file.ts", options: [{extensions: [".ts"]}]},
-      {code: "const foo123 = 'bar';", filename: "file.js", options: [{extensions: [".ts"]}]},
+      {
+        code: "const foo = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}]
+      },
+      {
+        code: "const foo123 = 'bar';",
+        filename: "file.js",
+        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}]
+      },
     ],
     invalid: [
       {
         code: "const foo2 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts"]}],
+        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}],
         errors: [{messageId: "noNumberEnding"}],
       }
     ],
   }
 );
+
+ruleTester.run(
+  "no-number (custom exclude)",
+  noVariableWithNumberAtEnd,
+  {
+    valid: [
+      {
+        code: "const foo = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+      },
+      {
+        code: "const foo123 = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts", ".js"], exclude: ["foo123"]}]
+      },
+      {
+        code: "const s3 = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+      },
+      {
+        code: "const v4 = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+      },
+    ],
+    invalid: [
+      {
+        code: "const foo2 = 'bar';",
+        filename: "file.ts",
+        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}],
+        errors: [{messageId: "noNumberEnding"}],
+      }
+    ],
+  }
+)
