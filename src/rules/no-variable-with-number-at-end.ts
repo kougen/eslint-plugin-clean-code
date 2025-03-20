@@ -28,18 +28,20 @@ export default createRule({
           extensions: {
             type: "array",
             items: {type: "string"},
+            default: [".ts", ".js"],
           },
           exclude: {
             type: "array",
             items: {type: "string"},
+            default: ["s3", "v4"],
           }
         },
         additionalProperties: false
       },
     ],
   },
-  defaultOptions: [{extensions: [".ts", ".js"]}, {exclude: ["s3", "v4"]}],
-  create(context, [{extensions}, {exclude}]) {
+  defaultOptions: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}],
+  create(context, [{extensions, exclude}]) {
     const filename = context.filename;
     const ext = path.extname(filename);
 
