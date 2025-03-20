@@ -32,19 +32,19 @@ ruleTester.run(
       {
         code: "const foo = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}]
+        options: [{extensions: [".ts"], allow: ["s3", "v4"]}]
       },
       {
         code: "const foo123 = 'bar';",
         filename: "file.js",
-        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}]
+        options: [{extensions: [".ts"], allow: ["s3", "v4"]}]
       },
     ],
     invalid: [
       {
         code: "const foo2 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts"], exclude: ["s3", "v4"]}],
+        options: [{extensions: [".ts"], allow: ["s3", "v4"]}],
         errors: [{messageId: "noNumberEnding"}],
       }
     ],
@@ -52,36 +52,36 @@ ruleTester.run(
 );
 
 ruleTester.run(
-  "no-number (custom exclude)",
+  "no-number (custom allow)",
   noVariableWithNumberAtEnd,
   {
     valid: [
       {
         code: "const foo = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+        options: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}]
       },
       {
         code: "const foo123 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts", ".js"], exclude: ["foo123"]}]
+        options: [{extensions: [".ts", ".js"], allow: ["foo123"]}]
       },
       {
         code: "const s3 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+        options: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}]
       },
       {
         code: "const v4 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}]
+        options: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}]
       },
     ],
     invalid: [
       {
         code: "const foo2 = 'bar';",
         filename: "file.ts",
-        options: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}],
+        options: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}],
         errors: [{messageId: "noNumberEnding"}],
       }
     ],

@@ -30,7 +30,7 @@ export default createRule({
             items: {type: "string"},
             default: [".ts", ".js"],
           },
-          exclude: {
+          allow: {
             type: "array",
             items: {type: "string"},
             default: ["s3", "v4"],
@@ -40,8 +40,8 @@ export default createRule({
       },
     ],
   },
-  defaultOptions: [{extensions: [".ts", ".js"], exclude: ["s3", "v4"]}],
-  create(context, [{extensions, exclude}]) {
+  defaultOptions: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}],
+  create(context, [{extensions, allow}]) {
     const filename = context.filename;
     const ext = path.extname(filename);
 
@@ -52,7 +52,7 @@ export default createRule({
     return {
       Identifier(node) {
         const variableName = node.name.toLowerCase();
-        if (exclude.includes(variableName)) {
+        if (allow.includes(variableName)) {
           return;
         }
         if (/\d$/.test(variableName)) {
