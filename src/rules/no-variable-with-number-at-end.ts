@@ -33,15 +33,20 @@ export default createRule({
           allow: {
             type: "array",
             items: {type: "string"},
-            default: ["s3", "v4"],
+            default: ["v4"],
+          },
+          allowRegex: {
+            type: "array",
+            items: {type: "string"},
+            default: ["S3$"],
           }
         },
         additionalProperties: false
       },
     ],
   },
-  defaultOptions: [{extensions: [".ts", ".js"], allow: ["s3", "v4"]}],
-  create(context, [{extensions, allow}]) {
+  defaultOptions: [{extensions: [".ts", ".js"], allow: ["v4"], allowRegex: ["S3$"]}],
+  create(context, [{extensions, allow, allowRegex}]) {
     const filename = context.filename;
     const ext = path.extname(filename);
 
@@ -55,6 +60,13 @@ export default createRule({
         if (allow.includes(variableName)) {
           return;
         }
+
+        const allowRegexes = allowRegex.map(allowRegex => new RegExp(allowRegex, "i"));
+
+        if (allowRegexes.some(allowRegex => allowRegex.test(variableName))) {
+          return;
+        }
+
         if (/\d$/.test(variableName)) {
           context.report({
             node,
