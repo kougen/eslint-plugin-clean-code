@@ -1,12 +1,12 @@
 # eslint-plugin: clean-code
 
-# Clean Code Rules
+## Clean Code Rules
 
-# `no-number`
+### `no-number`
 
 Avoid using numbers at the end of variable or function names.
 
-## Rule Details
+#### Rule Details
 
 Examples of **incorrect** code for this rule:
 
@@ -31,7 +31,7 @@ function baz() {
 }
 ```
 
-### Options
+#### Options
 
 You can pass an `allow` option to specify a list of variable or function names that are allowed to have numbers at the end. 
 By default, the rule allows `s3` and `v4` as they are common in the JavaScript world. (e.g. `s3` for AWS S3, `v4` for UUID v4)
@@ -41,6 +41,22 @@ By default, the rule allows `s3` and `v4` as they are common in the JavaScript w
   "clean-code/no-number": ["error", {
     "allow": ["s3", "v4"]
   }]
+}
+```
+
+You can pass an `allowRegex` option to specify a list of regular expressions that are allowed to have numbers at the end.
+
+```json
+{
+  "clean-code/no-number": [
+    "error",
+    {
+      "allowRegex": [
+        "^foo[0-9]+$",
+        "S3$"
+      ]
+    }
+  ]
 }
 ```
 
